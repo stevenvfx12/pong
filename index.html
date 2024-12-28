@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Pong Game</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(45deg, #1e3c72, #2a5298);
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: #2a5298;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    background-color: #1e3c72;
+  }
+    canvas {
+      border: 3px solid white;
+    }
+  </style>
+</head>
+<body>
+  <button id="findMatch">Find Match</button>
+  <canvas id="pong" width="800" height="400"></canvas>
+  <script src="pong.js"></script>
+  <canvas id="pong" width="800" height="400"></canvas>
+  <script src="pong.js"></script>
+</body>
+</html>
