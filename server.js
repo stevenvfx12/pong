@@ -9,8 +9,8 @@ const wss = new WebSocket.Server({ server });
 
 app.use(express.static(path.join(__dirname, "public")));
 
-let waitingPlayer = null; // Houd bij of er een speler in de wachtrij staat
-const matches = new Map(); // Opslag voor actieve matches
+let waitingPlayer = null;
+const matches = new Map(); 
 
 wss.on("connection", (ws) => {
   console.log("New connection");
@@ -20,15 +20,15 @@ wss.on("connection", (ws) => {
 
     if (data.type === "findMatch") {
       if (waitingPlayer === null) {
-        // Plaats speler in wachtrij als er nog niemand is
+        
         waitingPlayer = ws;
         ws.send(JSON.stringify({ type: "status", message: "Waiting for an opponent..." }));
       } else {
-        // Maak een match met de wachtende speler
+        
         const opponent = waitingPlayer;
         waitingPlayer = null;
 
-        // Sla de match op
+        
         matches.set(ws, opponent);
         matches.set(opponent, ws);
 
@@ -49,7 +49,7 @@ wss.on("connection", (ws) => {
   });
 
   ws.on("close", () => {
-    // Verwijder speler uit match en wachtrij
+    
     if (waitingPlayer === ws) {
       waitingPlayer = null;
     }
